@@ -223,25 +223,19 @@ class PlayGameServicesGodot(godot: Godot) : GodotPlugin(godot), AchievementsList
     }
 
     fun signIn() {
-        if (::signInController.isInitialized) {
-          runOnUiThread {
-              signInController.signIn(googleSignInClient)
-          }
+        runOnUiThread {
+            signInController.signIn(googleSignInClient)
         }
     }
 
     fun signOut() {
-        if (::signInController.isInitialized) {
           runOnUiThread {
               signInController.signOut(googleSignInClient)
           }
-        }
     }
 
     fun isSignedIn(): Boolean {
-        if (::signInController.isInitialized) {
-          return signInController.isSignedIn()
-        }
+        return signInController.isSignedIn()
     }
 
     fun showAchievements() {
